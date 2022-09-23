@@ -1,0 +1,45 @@
+:root {
+  --on: #6948ed;
+  --off: #555;
+  --toggle-width: 60px;
+  --toggle-height: 30px;
+}
+body {
+  background: #333;
+}
+
+/* solution styles */
+.switch {
+  cursor: pointer;
+  margin: 50px auto;
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+  background: var(--off);
+  border-radius: 30px;
+  position: relative;
+}
+
+.switch::after {
+  content: '';
+  position: absolute;
+  transform: translateX(3px);
+  transition: transform 0.4s;
+  top: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: white;
+}
+
+input[type='checkbox'] {
+  position: absolute;
+  left: -100vw;
+}
+
+input[type='checkbox']:checked + .switch {
+  background: var(--on);
+}
+
+input[type='checkbox']:checked + .switch::after {
+  transform: translateX(34px);
+}
